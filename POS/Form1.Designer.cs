@@ -84,6 +84,7 @@
             btnLogIn.TabIndex = 6;
             btnLogIn.Text = "Log In";
             btnLogIn.UseVisualStyleBackColor = true;
+            btnLogIn.Click += btnLogIn_Click;
             // 
             // Form1
             // 
@@ -109,6 +110,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private TextBox txtUserName;
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox txtPassword;
