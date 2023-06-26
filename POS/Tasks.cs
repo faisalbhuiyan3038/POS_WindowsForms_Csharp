@@ -17,9 +17,11 @@ namespace POS
             InitializeComponent();
         }
 
-        private void btnLogIn_Click(object sender, EventArgs e)
+        private void btnAddCategory_Click(object sender, EventArgs e)
         {
-
+            AddCategory addCategory = new AddCategory();
+            addCategory.Show();
+            this.Hide();
         }
     }
 }
