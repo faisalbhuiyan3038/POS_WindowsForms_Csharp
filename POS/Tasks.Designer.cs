@@ -28,56 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnAddCategory = new Button();
-            btnAddProduct = new Button();
-            btnAddStock = new Button();
-            btnAddCustomer = new Button();
+            tasksMenuStrip = new MenuStrip();
+            menuAddItems = new ToolStripMenuItem();
+            addCategoryToolStripMenuItem = new ToolStripMenuItem();
+            addProductEntryToolStripMenuItem = new ToolStripMenuItem();
+            addStockEntryToolStripMenuItem = new ToolStripMenuItem();
+            addNewCustomerToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
+            tasksMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
-            // btnAddCategory
+            // tasksMenuStrip
             // 
-            btnAddCategory.BackColor = Color.FromArgb(255, 224, 192);
-            btnAddCategory.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAddCategory.Location = new Point(57, 47);
-            btnAddCategory.Name = "btnAddCategory";
-            btnAddCategory.Size = new Size(202, 81);
-            btnAddCategory.TabIndex = 7;
-            btnAddCategory.Text = "Add Product Category";
-            btnAddCategory.UseVisualStyleBackColor = false;
-            btnAddCategory.Click += btnAddCategory_Click;
+            tasksMenuStrip.BackColor = Color.FromArgb(255, 192, 192);
+            tasksMenuStrip.ImageScalingSize = new Size(20, 20);
+            tasksMenuStrip.Items.AddRange(new ToolStripItem[] { menuAddItems });
+            tasksMenuStrip.Location = new Point(0, 0);
+            tasksMenuStrip.Name = "tasksMenuStrip";
+            tasksMenuStrip.Size = new Size(607, 28);
+            tasksMenuStrip.TabIndex = 11;
+            tasksMenuStrip.Text = "menuStrip1";
             // 
-            // btnAddProduct
+            // menuAddItems
             // 
-            btnAddProduct.BackColor = Color.FromArgb(255, 224, 192);
-            btnAddProduct.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAddProduct.Location = new Point(297, 47);
-            btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(212, 81);
-            btnAddProduct.TabIndex = 8;
-            btnAddProduct.Text = "Add Product Entry";
-            btnAddProduct.UseVisualStyleBackColor = false;
+            menuAddItems.BackColor = Color.FromArgb(255, 128, 128);
+            menuAddItems.DropDownItems.AddRange(new ToolStripItem[] { addCategoryToolStripMenuItem, addProductEntryToolStripMenuItem, addStockEntryToolStripMenuItem, addNewCustomerToolStripMenuItem });
+            menuAddItems.Name = "menuAddItems";
+            menuAddItems.Size = new Size(91, 24);
+            menuAddItems.Text = "Add Items";
+            menuAddItems.Click += menuAddItems_Click;
             // 
-            // btnAddStock
+            // addCategoryToolStripMenuItem
             // 
-            btnAddStock.BackColor = Color.FromArgb(255, 224, 192);
-            btnAddStock.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAddStock.Location = new Point(57, 146);
-            btnAddStock.Name = "btnAddStock";
-            btnAddStock.Size = new Size(202, 77);
-            btnAddStock.TabIndex = 9;
-            btnAddStock.Text = "Add Stock Entry";
-            btnAddStock.UseVisualStyleBackColor = false;
+            addCategoryToolStripMenuItem.Name = "addCategoryToolStripMenuItem";
+            addCategoryToolStripMenuItem.Size = new Size(239, 26);
+            addCategoryToolStripMenuItem.Text = "Add Product Category";
+            addCategoryToolStripMenuItem.Click += addCategoryToolStripMenuItem_Click;
             // 
-            // btnAddCustomer
+            // addProductEntryToolStripMenuItem
             // 
-            btnAddCustomer.BackColor = Color.FromArgb(255, 224, 192);
-            btnAddCustomer.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAddCustomer.Location = new Point(297, 146);
-            btnAddCustomer.Name = "btnAddCustomer";
-            btnAddCustomer.Size = new Size(212, 77);
-            btnAddCustomer.TabIndex = 10;
-            btnAddCustomer.Text = "Add New Customer";
-            btnAddCustomer.UseVisualStyleBackColor = false;
+            addProductEntryToolStripMenuItem.Name = "addProductEntryToolStripMenuItem";
+            addProductEntryToolStripMenuItem.Size = new Size(239, 26);
+            addProductEntryToolStripMenuItem.Text = "Add Product Entry";
+            addProductEntryToolStripMenuItem.Click += addProductEntryToolStripMenuItem_Click;
+            // 
+            // addStockEntryToolStripMenuItem
+            // 
+            addStockEntryToolStripMenuItem.Name = "addStockEntryToolStripMenuItem";
+            addStockEntryToolStripMenuItem.Size = new Size(239, 26);
+            addStockEntryToolStripMenuItem.Text = "Add Stock Entry";
+            // 
+            // addNewCustomerToolStripMenuItem
+            // 
+            addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
+            addNewCustomerToolStripMenuItem.Size = new Size(239, 26);
+            addNewCustomerToolStripMenuItem.Text = "Add New Customer";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("MV Boli", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.IndianRed;
+            label1.Location = new Point(165, 133);
+            label1.Name = "label1";
+            label1.Size = new Size(263, 40);
+            label1.TabIndex = 12;
+            label1.Text = "Welcome, Admin!";
             // 
             // Tasks
             // 
@@ -85,20 +101,26 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 192, 128);
             ClientSize = new Size(607, 369);
-            Controls.Add(btnAddCustomer);
-            Controls.Add(btnAddStock);
-            Controls.Add(btnAddProduct);
-            Controls.Add(btnAddCategory);
+            Controls.Add(label1);
+            Controls.Add(tasksMenuStrip);
+            MainMenuStrip = tasksMenuStrip;
             Name = "Tasks";
             Text = "Tasks";
+            tasksMenuStrip.ResumeLayout(false);
+            tasksMenuStrip.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Button btnAddCategory;
-        private Button btnAddProduct;
         private Button btnAddStock;
         private Button btnAddCustomer;
+        private MenuStrip tasksMenuStrip;
+        private ToolStripMenuItem menuAddItems;
+        private ToolStripMenuItem addCategoryToolStripMenuItem;
+        private ToolStripMenuItem addProductEntryToolStripMenuItem;
+        private ToolStripMenuItem addStockEntryToolStripMenuItem;
+        private ToolStripMenuItem addNewCustomerToolStripMenuItem;
+        private Label label1;
     }
 }

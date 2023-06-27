@@ -23,7 +23,10 @@ namespace POS
             Tasks tasks = new Tasks();
             tasks.Show();
             this.Hide();
+        }
 
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
             string connectionString = "Data Source=DESKTOP-QFRL6D9\\SQLEXPRESS;Initial Catalog=POSDB;Integrated Security=True";
 
             string name = txtName.Text;
@@ -46,7 +49,7 @@ namespace POS
 
                 int rowsAffected = cmd.ExecuteNonQuery();
 
-                if(rowsAffected > 0)
+                if (rowsAffected > 0)
                 {
                     MessageBox.Show("Category Added Successfully!");
                 }

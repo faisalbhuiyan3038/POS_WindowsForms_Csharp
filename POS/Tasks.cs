@@ -19,8 +19,25 @@ namespace POS
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void menuAddItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             AddCategory addCategory = new AddCategory();
             addCategory.Show();
+            this.Hide();
+        }
+
+        private void addProductEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddProduct addProduct = new AddProduct();
+            addProduct.Show();
             this.Hide();
         }
     }

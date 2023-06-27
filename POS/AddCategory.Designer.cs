@@ -30,7 +30,7 @@
         {
             txtName = new TextBox();
             txtDescription = new TextBox();
-            btnLogIn = new Button();
+            btnAddCategory = new Button();
             btnGoBack = new Button();
             SuspendLayout();
             // 
@@ -56,15 +56,16 @@
             txtDescription.Size = new Size(466, 27);
             txtDescription.TabIndex = 5;
             // 
-            // btnLogIn
+            // btnAddCategory
             // 
-            btnLogIn.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLogIn.Location = new Point(35, 151);
-            btnLogIn.Name = "btnLogIn";
-            btnLogIn.Size = new Size(224, 38);
-            btnLogIn.TabIndex = 7;
-            btnLogIn.Text = "Add Category Entry";
-            btnLogIn.UseVisualStyleBackColor = true;
+            btnAddCategory.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddCategory.Location = new Point(35, 151);
+            btnAddCategory.Name = "btnAddCategory";
+            btnAddCategory.Size = new Size(224, 38);
+            btnAddCategory.TabIndex = 7;
+            btnAddCategory.Text = "Add Category Entry";
+            btnAddCategory.UseVisualStyleBackColor = true;
+            btnAddCategory.Click += btnLogIn_Click;
             // 
             // btnGoBack
             // 
@@ -84,7 +85,7 @@
             BackColor = Color.FromArgb(255, 192, 128);
             ClientSize = new Size(538, 219);
             Controls.Add(btnGoBack);
-            Controls.Add(btnLogIn);
+            Controls.Add(btnAddCategory);
             Controls.Add(txtDescription);
             Controls.Add(txtName);
             Name = "AddCategory";
@@ -97,7 +98,7 @@
 
         private TextBox txtName;
         private TextBox txtDescription;
-        private Button btnLogIn;
+        private Button btnAddCategory;
         private Button btnGoBack;
     }
 }
