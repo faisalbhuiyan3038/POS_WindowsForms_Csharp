@@ -123,13 +123,14 @@
             // 
             comboBoxCategory.BackColor = Color.FromArgb(255, 224, 192);
             comboBoxCategory.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBoxCategory.ForeColor = Color.DimGray;
+            comboBoxCategory.ForeColor = SystemColors.Desktop;
             comboBoxCategory.FormattingEnabled = true;
             comboBoxCategory.Location = new Point(261, 72);
             comboBoxCategory.Name = "comboBoxCategory";
             comboBoxCategory.Size = new Size(213, 36);
             comboBoxCategory.TabIndex = 8;
             comboBoxCategory.Text = "Choose Category";
+            comboBoxCategory.SelectedIndexChanged += comboBoxCategory_SelectedIndexChanged;
             // 
             // btnAddProduct
             // 
