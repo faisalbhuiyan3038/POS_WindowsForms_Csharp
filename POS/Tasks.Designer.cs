@@ -77,6 +77,7 @@
             addStockEntryToolStripMenuItem.Name = "addStockEntryToolStripMenuItem";
             addStockEntryToolStripMenuItem.Size = new Size(239, 26);
             addStockEntryToolStripMenuItem.Text = "Add Stock Entry";
+            addStockEntryToolStripMenuItem.Click += addStockEntryToolStripMenuItem_Click;
             // 
             // addNewCustomerToolStripMenuItem
             // 
