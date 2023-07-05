@@ -34,30 +34,43 @@ namespace POS
             string createdBy = "Admin";
             string createdDate = (DateTime.Now).ToString();
 
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if(string.IsNullOrEmpty(name) == false)
             {
-                conn.Open();
-
-                string query = "INSERT INTO Category (Name,Description,CreatedBy,CreatedDate) VALUES (@Name,@Description,@CreatedBy,@CreatedDate)";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Name", name);
-                cmd.Parameters.AddWithValue("@Description", description);
-                cmd.Parameters.AddWithValue("@CreatedBy", createdBy);
-                cmd.Parameters.AddWithValue("@CreatedDate", createdDate);
-
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Category Added Successfully!");
-                }
-                else
-                {
-                    MessageBox.Show("Something Went Wrong. Please Try Again!");
-                }
+                MessageBox.Show("Please Type the Category Name...");
             }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "INSERT INTO Category (Name,Description,CreatedBy,CreatedDate) VALUES (@Name,@Description,@CreatedBy,@CreatedDate)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@CreatedBy", createdBy);
+                    cmd.Parameters.AddWithValue("@CreatedDate", createdDate);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Category Added Successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something Went Wrong. Please Try Again!");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

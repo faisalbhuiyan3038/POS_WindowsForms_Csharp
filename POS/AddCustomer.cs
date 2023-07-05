@@ -32,31 +32,43 @@ namespace POS
             string Mobile = txtMobile.Text;
             string Address = txtAddress.Text;
 
-            string connectionString = "Data Source=DESKTOP-QFRL6D9\\SQLEXPRESS;Initial Catalog=POSDB;Integrated Security=True";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if(string.IsNullOrEmpty(Name) == false)
             {
-                conn.Open();
+                MessageBox.Show("Please Type In the Customer's Name....");
+            }
 
-                string query = "INSERT INTO Customer (Name,Email,Mobile,Address) VALUES (@Name,@Email,@Mobile,@Address)";
+            try
+            {
+                string connectionString = "Data Source=DESKTOP-QFRL6D9\\SQLEXPRESS;Initial Catalog=POSDB;Integrated Security=True";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Name", Name);
-                cmd.Parameters.AddWithValue("@Email", Email);
-                cmd.Parameters.AddWithValue("@Mobile", Mobile);
-                cmd.Parameters.AddWithValue("@Address", Address);
-
-                int affectedRows = cmd.ExecuteNonQuery();
-
-                if(affectedRows > 0)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("Customer Added Successfully");
-                }
-                else
-                {
-                    MessageBox.Show("Something Went Wrong. Please Try Again.");
+                    conn.Open();
+
+                    string query = "INSERT INTO Customer (Name,Email,Mobile,Address) VALUES (@Name,@Email,@Mobile,@Address)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Name", Name);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Mobile", Mobile);
+                    cmd.Parameters.AddWithValue("@Address", Address);
+
+                    int affectedRows = cmd.ExecuteNonQuery();
+
+                    if (affectedRows > 0)
+                    {
+                        MessageBox.Show("Customer Added Successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something Went Wrong. Please Try Again.");
+                    }
                 }
             }
+            catch (Exception ex){
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

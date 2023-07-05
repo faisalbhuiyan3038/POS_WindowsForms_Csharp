@@ -44,38 +44,51 @@ namespace POS
             string CreatedBy = "Admin";
             string CreatedDate = DateTime.Now.ToString();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if(string.IsNullOrEmpty(ProductName) == false || string.IsNullOrEmpty(Qty) == false)
             {
-                conn.Open();
-
-                string ProductQuery = "SELECT ProductID FROM Product WHERE Name = @ProductName";
-                SqlCommand cmd = new SqlCommand(ProductQuery, conn);
-                cmd.Parameters.AddWithValue("@ProductName", ProductName);
-
-                string ProductId = cmd.ExecuteScalar().ToString();
-
-                string query = "INSERT INTO Stock (ProductID,Qty,ExpiryDate,CreatedBy,CreatedDate) VALUES (@ProductID,@Qty,@ExpiryDate,@CreatedBy,@CreatedDate)";
-
-                cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ProductID", ProductId);
-                cmd.Parameters.AddWithValue("@Qty", Qty);
-                cmd.Parameters.AddWithValue("@ExpiryDate", ExpiryDate);
-                cmd.Parameters.AddWithValue("@CreatedBy", CreatedBy);
-                cmd.Parameters.AddWithValue("@CreatedDate", CreatedDate);
-
-                int AffectedRows = cmd.ExecuteNonQuery();
-
-                if (AffectedRows > 0)
-                {
-                    MessageBox.Show("Stock Added Successfully");
-                }
-                else
-                {
-                    MessageBox.Show("Something Went Wrong. Please Try Again.");
-                }
-
-                conn.Close();
+                MessageBox.Show("Please Fill Out All Necessary Fields...");
             }
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string ProductQuery = "SELECT ProductID FROM Product WHERE Name = @ProductName";
+                    SqlCommand cmd = new SqlCommand(ProductQuery, conn);
+                    cmd.Parameters.AddWithValue("@ProductName", ProductName);
+
+                    string ProductId = cmd.ExecuteScalar().ToString();
+
+                    string query = "INSERT INTO Stock (ProductID,Qty,ExpiryDate,CreatedBy,CreatedDate) VALUES (@ProductID,@Qty,@ExpiryDate,@CreatedBy,@CreatedDate)";
+
+                    cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ProductID", ProductId);
+                    cmd.Parameters.AddWithValue("@Qty", Qty);
+                    cmd.Parameters.AddWithValue("@ExpiryDate", ExpiryDate);
+                    cmd.Parameters.AddWithValue("@CreatedBy", CreatedBy);
+                    cmd.Parameters.AddWithValue("@CreatedDate", CreatedDate);
+
+                    int AffectedRows = cmd.ExecuteNonQuery();
+
+                    if (AffectedRows > 0)
+                    {
+                        MessageBox.Show("Stock Added Successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something Went Wrong. Please Try Again.");
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An Error occured: " + ex.Message);
+            }
+
+            
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)
