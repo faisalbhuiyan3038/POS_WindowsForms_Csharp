@@ -41,3 +41,4 @@ D:\Users\Admin\Source\Repos\POS\POS\obj\Debug\net6.0-windows\POS.d-bfalse.Genera
 D:\Users\Admin\Source\Repos\POS\POS\obj\Debug\net6.0-windows\POS.AddCategory.resources
 D:\Users\Admin\Source\Repos\POS\POS\obj\Debug\net6.0-windows\POS.AddProduct.resources
 D:\Users\Admin\Source\Repos\POS\POS\obj\Debug\net6.0-windows\POS.AddStock.resources
+D:\Users\Admin\Source\Repos\POS\POS\obj\Debug\net6.0-windows\POS.AddCustomer.resources

@@ -84,6 +84,7 @@
             addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
             addNewCustomerToolStripMenuItem.Size = new Size(239, 26);
             addNewCustomerToolStripMenuItem.Text = "Add New Customer";
+            addNewCustomerToolStripMenuItem.Click += addNewCustomerToolStripMenuItem_Click;
             // 
             // label1
             // 

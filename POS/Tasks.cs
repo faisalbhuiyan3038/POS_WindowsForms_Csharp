@@ -47,5 +47,12 @@ namespace POS
             addStock.Show();
             this.Hide();
         }
+
+        private void addNewCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomer addCustomer = new AddCustomer();
+            addCustomer.Show();
+            this.Hide();
+        }
     }
 }
