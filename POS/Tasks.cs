@@ -54,5 +54,12 @@ namespace POS
             addCustomer.Show();
             this.Hide();
         }
+
+        private void updateCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateCategory updateCategory = new UpdateCategory();
+            updateCategory.Show();
+            this.Hide();
+        }
     }
 }
