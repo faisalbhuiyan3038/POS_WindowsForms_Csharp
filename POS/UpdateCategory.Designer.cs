@@ -33,6 +33,7 @@
             txtDescription = new TextBox();
             btnUpdateCategory = new Button();
             btnLoadExistingData = new Button();
+            btnGoBack = new Button();
             SuspendLayout();
             // 
             // txtExistingName
@@ -71,7 +72,7 @@
             // btnUpdateCategory
             // 
             btnUpdateCategory.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpdateCategory.Location = new Point(28, 159);
+            btnUpdateCategory.Location = new Point(261, 159);
             btnUpdateCategory.Name = "btnUpdateCategory";
             btnUpdateCategory.Size = new Size(224, 38);
             btnUpdateCategory.TabIndex = 10;
@@ -82,7 +83,7 @@
             // btnLoadExistingData
             // 
             btnLoadExistingData.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLoadExistingData.Location = new Point(320, 159);
+            btnLoadExistingData.Location = new Point(12, 159);
             btnLoadExistingData.Name = "btnLoadExistingData";
             btnLoadExistingData.Size = new Size(224, 38);
             btnLoadExistingData.TabIndex = 11;
@@ -90,12 +91,24 @@
             btnLoadExistingData.UseVisualStyleBackColor = true;
             btnLoadExistingData.Click += btnLoadExistingData_Click;
             // 
+            // btnGoBack
+            // 
+            btnGoBack.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGoBack.Location = new Point(503, 159);
+            btnGoBack.Name = "btnGoBack";
+            btnGoBack.Size = new Size(127, 38);
+            btnGoBack.TabIndex = 12;
+            btnGoBack.Text = "Go Back";
+            btnGoBack.UseVisualStyleBackColor = true;
+            btnGoBack.Click += btnGoBack_Click;
+            // 
             // UpdateCategory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 192, 128);
             ClientSize = new Size(658, 230);
+            Controls.Add(btnGoBack);
             Controls.Add(btnLoadExistingData);
             Controls.Add(btnUpdateCategory);
             Controls.Add(txtDescription);
@@ -114,5 +127,6 @@
         private TextBox txtDescription;
         private Button btnUpdateCategory;
         private Button btnLoadExistingData;
+        private Button btnGoBack;
     }
 }
