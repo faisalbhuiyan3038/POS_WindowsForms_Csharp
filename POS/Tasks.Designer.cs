@@ -109,6 +109,7 @@
             updateToolStripMenuItem.Name = "updateToolStripMenuItem";
             updateToolStripMenuItem.Size = new Size(224, 26);
             updateToolStripMenuItem.Text = "Update Product";
+            updateToolStripMenuItem.Click += updateToolStripMenuItem_Click;
             // 
             // updateStockToolStripMenuItem
             // 

@@ -17,6 +17,23 @@ namespace POS
         public UpdateProduct()
         {
             InitializeComponent();
+            string connectionString = "Data Source=DESKTOP-QFRL6D9\\SQLEXPRESS;Initial Catalog=POSDB;Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "SELECT * FROM Category";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    comboBoxCategory.Items.Add(reader["Name"].ToString());
+                }
+                reader.Close();
+            }
         }
 
         private void btnLoadExistingData_Click(object sender, EventArgs e)
@@ -35,10 +52,13 @@ namespace POS
                 {
                     conn.Open();
 
-                    string query = "SELECT Name,Price,VATPercent,IsDiscountAllow,Description,CategoryID FROM Category WHERE Name = @existingName";
+                    string query = "SELECT * FROM Product WHERE Name = @existingName";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@existingName", existingName);
+
+                    int categoryID = 0;
+                    
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -51,22 +71,21 @@ namespace POS
 
                             if (reader.GetBoolean("IsDiscountAllow"))
                             {
-                                rdBtnDiscountYes.Enabled = true;
+                                rdBtnDiscountYes.Checked = true;
                             }
                             else
                             {
-                                rdBtnDiscountNo.Enabled = true;
+                                rdBtnDiscountNo.Checked = true;
                             }
 
-                            string categoryIdQuery = "SELECT Name FROM Category WHERE CategoryID = @CategoryID";
-
-                            SqlCommand cmds = new SqlCommand(categoryIdQuery, conn);
-                            cmds.Parameters.AddWithValue("@CategoryID", reader["CategoryID"].ToString());
                             
-                            comboBoxCategory.SelectedItem = cmds.ExecuteScalar().ToString(); 
+                            categoryID = (int)reader["CategoryID"];
+                            comboBoxCategory.SelectedIndex = categoryID - 1;
                         }
 
                     }
+                    
+                        
 
                     conn.Close();
                 }

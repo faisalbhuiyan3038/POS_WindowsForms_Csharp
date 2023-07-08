@@ -61,5 +61,12 @@ namespace POS
             updateCategory.Show();
             this.Hide();
         }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateProduct updateProduct = new UpdateProduct();
+            updateProduct.Show();
+            this.Hide();
+        }
     }
 }
