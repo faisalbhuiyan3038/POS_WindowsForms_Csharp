@@ -167,6 +167,7 @@
             btnUpdateProduct.TabIndex = 15;
             btnUpdateProduct.Text = "Update Product";
             btnUpdateProduct.UseVisualStyleBackColor = true;
+            btnUpdateProduct.Click += btnUpdateProduct_Click;
             // 
             // btnGoBack
             // 
@@ -177,6 +178,7 @@
             btnGoBack.TabIndex = 16;
             btnGoBack.Text = "Go Back";
             btnGoBack.UseVisualStyleBackColor = true;
+            btnGoBack.Click += btnGoBack_Click;
             // 
             // UpdateProduct
             // 
